@@ -22,15 +22,16 @@ chsh -s /bin/zsh
 ## .zshrc 配置文件
 
 ```shell
-	export ZSH="/Users/{你的用户名}/.oh-my-zsh"
-  ZSH_THEME="amuse" # 主题设置
-  DEFAULT_USER=$USER
-  plugins=(git last-working-dir wd) # 插件
-  # wd插件 可以给目录添加索引，进入/a/b/c/d然后执行wd add test，之后无论在哪里执行wd test都会进入到/a/b/c/d
-  export PATH="/usr/local/opt/redis@4.0/bin:$PATH" # 环境变量
-  source $ZSH/oh-my-zsh.sh 
-  source /Users/jinzhiwen/.zshSource/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  #命令高亮
-  source /etc/profile #开机加载其他环境变量配置
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="amuse" # 主题设置
+DEFAULT_USER=$USER
+plugins=(git wd zsh-syntax-highlighting last-working-dir) # 插件
+source $ZSH/oh-my-zsh.sh
+export GOROOT=/usr/local/go
+export GOPATH=/home/mac/Desktop/go
+export GOBIN=$GOPATH/bin
+export GO111MODULE=auto
+export PATH=$PATH:$GOROOT/bin:$GOBIN
 ```
 
 这里需要注意使用zsh后,环境变量文件不再在`~/.bash_profile`和`/etc/profile`配置 环境变量的设置应该在`~/.zshrc`中
