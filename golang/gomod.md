@@ -24,6 +24,10 @@ go mod why      # 解释为什么需要依赖
 ## 开始
 
 ```shell
+#go env -w 设置 goenv 也可以 export 
+go env -w GO111MODULE="auto"   # 设置 gomod 为自动 在 gopath 外自动使用 gomod
+go env -w GOPROXY="https://goproxy.cn,direct"  # 设置 go源为七牛云
+go env -w GOPRIVATE="你的项目" # 设置私有库 如 gitlab 等
 mkdir gomodtest ## 在任意目录创建项目目录
 vim main.go
 ```
@@ -68,8 +72,7 @@ module nimabi  # 模块名称
 go 1.13   # go版本信息
 
 # 下面执行 go run 或者go build 就会自动安装相关依赖 并且声称依赖表文件 go.sum
-go mod  tidy && go mod vendor # 同步所有依赖 并且同步到vendor目录
-
+go mod  tidy # 同步所有依赖
 ```
 
 
